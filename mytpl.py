@@ -4,6 +4,7 @@ import os
 import sys
 
 DIR = os.path.expanduser("~/.config/mytemplates/")
+GITURL = "git://github.com/Psycojoker/mytemplates.git"
 
 def init():
     if os.system("which 'git' > /dev/null") != 0:
@@ -14,7 +15,7 @@ def init():
         os.mkdir(DIR)
     if os.system("cd %s && git status > /dev/null 2>&1" % DIR) != 0:
         print "Cloning templates in %s" % DIR
-        if os.system("git clone git://github.com/Psycojoker/mytemplates.git %s" % DIR) != 0:
+        if os.system("git clone %s %s" % (GITURL, DIR)) != 0:
             print sys.stderr, "Didn't managed to clone git repository in %s" % DIR
             print sys.stderr, "Abort"
 
