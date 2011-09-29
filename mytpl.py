@@ -19,5 +19,9 @@ def init():
             print sys.stderr, "Didn't managed to clone git repository in %s" % DIR
             print sys.stderr, "Abort"
 
+def load_templates():
+    return filter(lambda x: x[0] != ".", os.listdir(DIR))
+
 if __name__ == "__main__":
     init()
+    templates = load_templates()
