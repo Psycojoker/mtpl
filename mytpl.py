@@ -22,6 +22,11 @@ def init():
 def load_templates():
     return filter(lambda x: x[0] != ".", os.listdir(DIR))
 
+def manage_user_input(input, templates):
+    if not input:
+        print "Templates available:"
+        print "\n".join(map(lambda x: " * " + x, templates))
+
 if __name__ == "__main__":
     init()
-    templates = load_templates()
+    manage_user_input(sys.argv[1:], load_templates())
