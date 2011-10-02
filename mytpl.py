@@ -22,15 +22,28 @@ def init():
 def load_templates():
     return filter(lambda x: x[0] != ".", os.listdir(DIR))
 
-def manage_user_input(input, templates):
-    if not input or (input and input[0] not in templates):
-        if input and input[0] not in templates:
-            print "Error: %s not in template list\n" % input[0]
-        print "Templates available:"
-        print "\n".join(map(lambda x: " * " + x, templates))
+def _find_template(input, templates):
+    return input[0] if input and input[0] in templates else False
 
-    elif input[0] in templates:
-        sys.stdout.write(open(DIR + input[0], "r").read())
+def list_templates_and_quit(templates, exit=0):
+    print "Templates available:"
+    print "\n".join(map(lambda x: " * " + x, templates))
+    sys.exit(exit)
+
+def get_template(input, templates):
+    return input[0] if input[0] in templates else None
+
+def manage_user_input(input, templates):
+    if not input:
+        list_templates_and_quit(templates)
+
+    template = get_template(input, templates)
+
+    if template is None:
+        print "Error: '%s' not an available template\n" % input[0]
+        list_templates_and_quit(templates, exit=1)
+
+    sys.stdout.write(open(DIR + template, "r").read())
 
 if __name__ == "__main__":
     init()
