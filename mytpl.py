@@ -23,7 +23,9 @@ def load_templates():
     return filter(lambda x: x[0] != ".", os.listdir(DIR))
 
 def manage_user_input(input, templates):
-    if not input:
+    if not input or (input and input[0] not in templates):
+        if input and input[0] not in templates:
+            print "Error: %s not in template list\n" % input[0]
         print "Templates available:"
         print "\n".join(map(lambda x: " * " + x, templates))
 
