@@ -29,6 +29,9 @@ def manage_user_input(input, templates):
         print "Templates available:"
         print "\n".join(map(lambda x: " * " + x, templates))
 
+    elif input[0] in templates:
+        sys.stdout.write(open(DIR + input[0], "r").read())
+
 if __name__ == "__main__":
     init()
     manage_user_input(sys.argv[1:], load_templates())
