@@ -45,9 +45,16 @@ def get_template(input, templates):
 
     return None
 
+def manage_potential_command(input):
+    if input[0] == "update":
+        os.system("cd %s && git pull" % DIR)
+        sys.exit()
+
 def manage_user_input(input, templates):
     if not input:
         list_templates_and_quit(templates)
+
+    manage_potential_command(input)
 
     template = get_template(input, templates)
 
