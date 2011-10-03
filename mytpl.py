@@ -2,6 +2,7 @@
 
 import os
 import sys
+import re
 
 DIR = os.path.expanduser("~/.config/mytemplates/")
 GITURL = "git://github.com/Psycojoker/mytemplates.git"
@@ -31,7 +32,19 @@ def list_templates_and_quit(templates, exit=0):
     sys.exit(exit)
 
 def get_template(input, templates):
-    return input[0] if input[0] in templates else None
+    if input[0] in templates:
+        return input[0]
+
+    good = filter(lambda x: re.match("^.*" + ".*".join(input[0]) + ".*$", x), templates)
+
+    if len(good) == 1:
+        print >>sys.stderr, ">>> matching '%s' <<<\n" % good[0]
+        return good[0]
+
+    if good:
+        list_templates_and_quit(good)
+
+    return None
 
 def manage_user_input(input, templates):
     if not input:
