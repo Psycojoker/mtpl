@@ -23,9 +23,6 @@ def init():
 def load_templates():
     return filter(lambda x: x[0] != ".", os.listdir(DIR))
 
-def _find_template(input, templates):
-    return input[0] if input and input[0] in templates else False
-
 def list_templates_and_quit(templates, exit=0):
     print "Templates available:"
     print "\n".join(map(lambda x: " * " + x, templates))
