@@ -32,6 +32,8 @@ def get_template(input, templates):
     if input[0] in templates:
         return input[0]
 
+    # match templates names intelligently.
+    # ie: "ptn" will match "python" because you can find "ptn" in python as "PyThoN"
     good = filter(lambda x: re.match("^.*" + ".*".join(input[0]) + ".*$", x), templates)
 
     if len(good) == 1:
