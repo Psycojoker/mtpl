@@ -48,7 +48,14 @@ def get_template(input, templates):
 def manage_potential_command(input):
     if input[0] == "update":
         os.system("cd %s && git pull" % DIR)
-        sys.exit()
+        sys.exit(0)
+
+    if input[0] in ('-h', '--help'):
+        print "Usage: mtpl                                  (list templates)"
+        print "       mtpl <command>                        (execute command)"
+        print "       mtpl <template name>                  (display template)"
+        print "       mtpl <part of template name>          (try to guess template)"
+        sys.exit(0)
 
 def manage_user_input(input, templates):
     if not input:
