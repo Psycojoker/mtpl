@@ -12,7 +12,7 @@ def init():
         print >>sys.stderr, "Can't managed to find git, abort"
         sys.exit(1)
     if not os.path.exists(DIR):
-        if not os.path.exists(os.path.dirname(DIR)):
+        if not os.path.exists(os.path.dirname(os.path.dirname(DIR))):
             os.mkdir(os.path.dirname(os.path.dirname(DIR)))
         print "Creating templates dir in %s" % DIR
         os.mkdir(DIR)
