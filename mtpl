@@ -27,6 +27,7 @@ def load_templates():
 
 def list_templates_and_quit(templates, exit=0):
     print "Templates available:"
+    templates.sort()
     print "\n".join(map(lambda x: " * " + x, templates))
     sys.exit(exit)
 
