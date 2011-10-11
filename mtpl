@@ -42,7 +42,7 @@ def init():
             print sys.stderr, "Abort"
 
 def load_templates():
-    return filter(lambda x: x[0] != ".", os.listdir(DIR))
+    return filter(lambda x: x[0] != "." and x != "README.md", os.listdir(DIR))
 
 def list_templates_and_quit(templates, exit=0):
     print "Templates available:"
