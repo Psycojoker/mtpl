@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# -*- coding:Utf-8 -*-
 
 # mtpl (as in MyTemplates) is a small script and texts templates manager that
 # use git
