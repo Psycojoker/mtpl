@@ -18,4 +18,4 @@ Display matching template on stdout or the list of matching templates if there i
 
     mtpl update
 
-Update the template repository.
+Update the templates' repository.
