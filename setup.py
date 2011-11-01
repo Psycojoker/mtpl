@@ -3,7 +3,7 @@
 
 from setuptools import setup
 
-setup(name='MyTemplates',
+setup(name='mtpl',
       version='0.1',
       description='scripts templates manager that use git',
       author='Laurent Peuch',
