@@ -1,20 +1,20 @@
 # MyTemplates
 
-mtpl (as in MyTemplates) is a small script/files templates manager that us git.
+mtpl (as in MyTemplates) is a small script/files templates manager that uses git.
 
 # Why
 
-Often scripting, I have a lots of small piece of scripts, code, licences or configurations files that I frequently copy/paste from websites. This is boring and inconvenient (forgetting the website's address, slow, too many steps, tends to leads to error, etc...). A perfect task to solve with the power of code.
+Often scripting, I have a lot of small pieces of scripts, code, licences or configurations files that I frequently copy/paste from websites. This is boring and inconvenient (forgetting the website's address, slow, too many steps, tends to leads to error, etc...). A perfect task to solve with the power of code.
 
 Also, sharing is cool.
 
 # How
 
-So how to store and distribute a bunch of small pieces of code/text that will evolve in the time and if possible with different versions of the "bunch"? Well git + branch is a perfect solution. But git alone isn't very adapt to this usage. So, let's build a small interface on top of it.
+So how to store and distribute a bunch of small pieces of code/text that will evolve in time and if possible with different versions of the "bunch"? Well git + branch is a perfect solution. But git alone doesn't really fit such use. So, let's build a small interface on top of it.
 
 # What
 
-And voilà, you have a small script that use the power of git to distribute and share severals templates of script/code/licences/configuration files with a simple and powerful way to select one of it without to care on how git is working behind.
+And voilà, you have a small script that use the power of git to distribute and share severals templates of script/code/licences/configuration files with a simple and powerful way to select one of it without caring on how git is working behind.
 
 # Usage
 
@@ -40,8 +40,8 @@ Jut add a new file in <code>~/.config/mytemplates/</code>.
 
 # I want to propose a new template to the official repository!
 
-Well, lucky you are, you already have a git repository in <code>~/.config/mytemplates/</code>. After you have add the file, commit and pushed somewhere just send me an email at cortex@worlddomination.be. You can also fork the github repository [here](https://github.com/Psycojoker/mytemplates) and send me a pull request (simplier).
+Well, lucky you are, you already have a git repository in <code>~/.config/mytemplates/</code>. After you have added the file, commited and pushed somewhere just send me an email at cortex@worlddomination.be. You can also fork the github repository [here](https://github.com/Psycojoker/mytemplates) and send me a pull request (easier).
 
 # Licence
 
-Templates are in the public domaine. MyTemplates is under agplv3+.
+Templates are in the public domain. MyTemplates is under agplv3+.
