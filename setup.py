@@ -9,7 +9,7 @@ setup(name='MyTemplates',
       author='Laurent Peuch',
       long_description=open("README.md").read(),
       author_email='cortex@worlddomination.be',
-      url='http://worlddomination.be/projects/mtpl',
+      url='http://worlddomination.be/projects/mtpl.html',
       license= 'GPLv3+',
       # list of scripts supplied by your application
       scripts=['mtpl', 'mytemplates'],
