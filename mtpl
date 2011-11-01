@@ -63,7 +63,22 @@ def get_template(input, templates):
         return good[0]
 
     if good:
-        list_templates_and_quit(good)
+        # ewwww
+        # put matchings letters in bold
+        new_good = []
+        for i in good:
+            altern = True
+            new_name = ""
+            for j in re.match("^(.*)(" + ")(.*)(".join(input[0]) + ")(.*)$", i).groups():
+                if altern:
+                    new_name += j
+                    altern = False
+                else:
+                    new_name += "\033[1m" + j + "\033[0;0m"
+                    altern = True
+            new_good.append(new_name)
+
+        list_templates_and_quit(new_good)
 
     return None
 
