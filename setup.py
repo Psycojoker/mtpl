@@ -4,7 +4,7 @@
 from setuptools import setup
 
 setup(name='mtpl',
-      version='0.1.1',
+      version='0.2',
       description='scripts templates manager that use git',
       author='Laurent Peuch',
       long_description=open("README.md").read(),
