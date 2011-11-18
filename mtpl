@@ -41,25 +41,32 @@ def init():
             print sys.stderr, "Didn't managed to clone git repository in %s" % DIR
             print sys.stderr, "Abort"
 
+def _exec(template):
+    os.system("python %s %s" % (DIR + template + ".py", " ".join(sys.argv[2:])))
+
+def _display(template):
+    sys.stdout.write(open(DIR + template, "r").read())
+
 def load_templates():
-    return filter(lambda x: x[0] != "." and x != "README.md", os.listdir(DIR))
+    return map(lambda x: (_display, x) if not x.endswith(".py") else (_exec, x[:-3]), filter(lambda x: x[0] != "." and x != "README.md", os.listdir(DIR)))
 
 def list_templates_and_quit(templates, exit=0):
     print "Templates available:"
     templates.sort()
-    print "\n".join(map(lambda x: " * " + x, templates))
+    print "\n".join(map(lambda x: " * " + x[1], templates))
     sys.exit(exit)
 
 def get_template(input, templates):
-    if input[0] in templates:
-        return input[0]
+    for i in templates:
+        if input[0] == i[1]:
+            return i
 
     # match templates names intelligently.
     # ie: "ptn" will match "python" because you can find "ptn" in python as "PyThoN"
-    good = filter(lambda x: re.match("^.*" + ".*".join(input[0]) + ".*$", x), templates)
+    good = filter(lambda x: re.match("^.*" + ".*".join(input[0]) + ".*$", x[1]), templates)
 
     if len(good) == 1:
-        print >>sys.stderr, ">>> matching '%s' <<<\n" % good[0]
+        print >>sys.stderr, ">>> matching '%s' <<<\n" % good[0][1]
         return good[0]
 
     if good:
@@ -106,7 +113,8 @@ def manage_user_input(input, templates):
         print "Error: '%s' not an available template\n" % input[0]
         list_templates_and_quit(templates, exit=1)
 
-    sys.stdout.write(open(DIR + template, "r").read())
+    # call corresponding function on matching template
+    template[0](template[1])
 
 if __name__ == "__main__":
     init()
