@@ -12,7 +12,7 @@ setup(name='mtpl',
       url='http://worlddomination.be/projects/mtpl.html',
       license= 'GPLv3+',
       # list of scripts supplied by your application
-      scripts=['mtpl', 'mytemplates'],
+      scripts=['mtpl'],
       keywords='templates script cli git',
      )
 
